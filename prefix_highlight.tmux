@@ -57,7 +57,7 @@ main() {
 		output_suffix=$(tmux_option "$output_suffix" " ") \
 		copy_attr=$(tmux_option "$copy_attr_config" "$default_copy_attr") \
 		sync_attr=$(tmux_option "$sync_attr_config" "$default_sync_attr") \
-		prefix_prompt=$(tmux_option "$prefix_prompt" "COMMAND") \
+		prefix_prompt=$(tmux_option "$prefix_prompt" "CMD:") \
 		copy_prompt=$(tmux_option "$copy_prompt" "$default_copy_prompt") \
 		sync_prompt=$(tmux_option "$sync_prompt" "$default_sync_prompt") \
 		empty_prompt=$(tmux_option "$empty_prompt" "$default_empty_prompt") \
@@ -77,7 +77,7 @@ main() {
 	if [[ "on" = "$empty_has_affixes" ]]; then
 		local -r empty_mode="$empty_highlight$output_prefix$empty_prompt$output_suffix"
 	else
-		local -r empty_mode="$empty_highlight$empty_prompt"
+		local -r empty_mode="$(format_style "fg=$fg_color,bg=#8CAAED")$empty_prompt$(format_style "fg=#8CAAED,bg=#c6d0f5")"
 	fi
 
 	if [[ "on" = "$show_copy_mode" ]]; then
