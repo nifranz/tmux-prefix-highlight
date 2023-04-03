@@ -68,7 +68,7 @@ main() {
 	local -r prefix_mode="$prefix_highlight$output_prefix$prefix_prompt $(format_style "fg=$bg_color,bg=#c6d0f5")$output_suffix"
 
 	local -r copy_highlight="$(format_style "${copy_attr:+default,$copy_attr}")"
-	local -r copy_mode="$copy_highlight$output_prefix$copy_prompt$output_suffix"
+	local -r copy_mode="$copy_highlight$output_prefix$copy_prompt $(format_style "fg=yellow,bg=#c6d0f5")$output_suffix"
 
 	local -r sync_highlight="$(format_style "${sync_attr:+default,$sync_attr}")"
 	local -r sync_mode="$sync_highlight$output_prefix$sync_prompt$output_suffix"
